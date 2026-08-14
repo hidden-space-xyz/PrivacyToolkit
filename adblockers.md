@@ -1,30 +1,5 @@
 # 🛡️ Ad, Tracker & Threat Blocking Guide
 
-![uBlock Origin](https://img.shields.io/badge/uBlock%20Origin-local%20filtering-800000)
-![Brave Shields](https://img.shields.io/badge/Brave%20Shields-local%20filtering-FB542B)
-![AdGuard Home](https://img.shields.io/badge/AdGuard%20Home-DNS%20filtering-68BC71)
-![Last reviewed](https://img.shields.io/badge/last%20reviewed-August%202026-555555)
-
-> [!NOTE]
-> This guide focuses **exclusively on content-blocking configuration**.
->
-> Browser selection, browser privacy settings, operating-system hardening, password management, and similar topics should be handled separately.
-
-This setup uses three complementary filtering layers:
-
-| Layer          | Tool          | Main purpose                                      |
-| -------------- | ------------- | ------------------------------------------------- |
-| 🌐 **DNS**     | AdGuard Home  | Network-wide domain blocking                      |
-| 🧩 **Browser** | uBlock Origin | Precise network, cosmetic, and advanced filtering |
-| 🦁 **Browser** | Brave Shields | Built-in filtering for Brave                      |
-
-> [!IMPORTANT]
-> **More filter lists do not automatically mean better protection.**
->
-> The goal is to use a small number of reliable lists in the layer where they make the most sense.
-
----
-
 ## 📑 Table of Contents
 
 * [1. Recommended architecture](#1--recommended-architecture)
@@ -36,8 +11,6 @@ This setup uses three complementary filtering layers:
 * [7. Troubleshooting and false positives](#7--troubleshooting-and-false-positives)
 * [8. Verification](#8--verification)
 * [9. Maintenance](#9--maintenance)
-* [10. Common mistakes](#10--common-mistakes)
-* [11. Final recommended configurations](#11--final-recommended-configurations)
 
 ---
 
@@ -138,42 +111,46 @@ Blindly duplicating millions of domain rules across every layer usually is not.
 
 # 2. ⚡ Quick Configuration
 
-If you do not need the detailed explanation, use one of these two profiles.
+This guide has **one recommended default profile** and **one performance fallback**.
 
-## 🟢 Balanced
+The rule is simple:
 
-Recommended for most users.
+> **Start with and keep PRO++ Full + TIF Full.**
+>
+> Only switch to the performance fallback if the device or server shows real performance problems such as excessive memory use, very slow filter reloads, browser instability, or clearly degraded responsiveness.
 
-| Tool              | Configuration                                            |
-| ----------------- | -------------------------------------------------------- |
-| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection |
-| **Brave Shields** | Aggressive mode + regional lists                         |
-| **AdGuard Home**  | HaGeZi Multi PRO + TIF + Dandelion Sprout Anti-Malware   |
+## ✅ Default profile — use this first
 
-### Advantages
+| Tool              | Configuration                                                                  |
+| ----------------- | ------------------------------------------------------------------------------ |
+| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full |
+| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full |
+| **AdGuard Home**  | HaGeZi Multi PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware           |
 
-* very good overall coverage;
-* few false positives;
-* low maintenance;
-* straightforward troubleshooting;
-* modest resource usage.
+The default HaGeZi profile is:
 
----
+* **HaGeZi Multi PRO++ — Full**
+* **HaGeZi Threat Intelligence Feeds — TIF Full**
 
-## 🔴 Strict
+This is the profile users should normally run in both the browser and DNS layers.
 
-For users who are comfortable diagnosing occasional breakage.
+## 🪶 Performance fallback — only when necessary
 
-| Tool              | Configuration                                            |
-| ----------------- | -------------------------------------------------------- |
-| **uBlock Origin** | Balanced setup + HaGeZi Pro++ Mini + TIF Medium          |
-| **Brave Shields** | Balanced setup + HaGeZi Pro++ Mini + TIF Medium          |
-| **AdGuard Home**  | HaGeZi Multi PRO++ + TIF + Dandelion Sprout Anti-Malware |
+If the full profile causes measurable performance problems, replace it with this **single reduced profile**:
+
+* **HaGeZi Multi PRO++ — Mini**
+* **HaGeZi Threat Intelligence Feeds — TIF Medium**
+
+Do not reduce the lists pre-emptively. Do not choose intermediate combinations. In this guide, the reduced profile exists only as a fallback for hardware or browser resource limitations.
+
+### External list policy
+
+All manually imported external lists in this guide use **jsDelivr** URLs.
 
 > [!WARNING]
-> **PRO++ is intentionally aggressive.**
+> **PRO++ Full and TIF Full are intentionally heavy and aggressive.**
 >
-> It may block telemetry, affiliate infrastructure, redirectors, analytics endpoints, or auxiliary services that some websites rely on.
+> Higher memory usage and longer list reloads are expected compared with the fallback profile. That alone is not a reason to downgrade unless it creates an actual usability or stability problem.
 
 ---
 
@@ -302,43 +279,57 @@ If you regularly access local services from the browser, be prepared to create n
 
 ---
 
-## 3.6. 🧱 External Lists
+## 3.6. 🧱 External Lists — Default Full Profile
 
-Avoid loading the largest available domain lists into the browser by default.
+Use the **full** HaGeZi lists in the browser by default:
 
-For a strict configuration, smaller browser-oriented variants make more sense:
+```text
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+```
+
+| List                          | Purpose                                                |
+| ----------------------------- | ------------------------------------------------------ |
+| **HaGeZi Multi PRO++ — Full** | Ads, tracking, telemetry, affiliate infrastructure, and other unwanted domains |
+| **HaGeZi TIF — Full**         | Malware, phishing, scams, and malicious infrastructure |
+
+> [!IMPORTANT]
+> **PRO++ Full + TIF Full is the normal browser configuration in this guide.**
+>
+> Do not choose smaller variants merely to save resources on paper. Keep the full lists unless they cause an observable performance or stability problem on that device.
+
+### 🪶 Performance fallback
+
+Only if the full profile causes real performance problems, replace **both** full HaGeZi lists with this single reduced profile:
 
 ```text
 https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
 https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
 ```
 
-| List                  | Purpose                                                |
-| --------------------- | ------------------------------------------------------ |
-| **HaGeZi Pro++ Mini** | Ads, tracking, telemetry, and other unwanted domains   |
-| **HaGeZi TIF Medium** | Malware, phishing, scams, and malicious infrastructure |
+| List                           | Role in the fallback profile |
+| ------------------------------ | ---------------------------- |
+| **HaGeZi Multi PRO++ — Mini**  | Reduced-size PRO++ variant   |
+| **HaGeZi TIF — Medium**        | Reduced-size TIF variant     |
 
-> [!TIP]
-> Reserve extremely large domain lists for **AdGuard Home** whenever possible.
->
-> Browser blockers provide more value when using their contextual capabilities than when acting as a second DNS blocklist engine.
-
----
+> [!WARNING]
+> Do not treat this as an alternative preference profile. It is only a resource fallback for systems that cannot run PRO++ Full + TIF Full comfortably.
 
 <details>
-<summary><strong>🦠 Dandelion Sprout Anti-Malware — optional</strong></summary>
+<summary><strong>🦠 Dandelion Sprout Anti-Malware — optional additional source</strong></summary>
 
-You can also import:
+If you also want Dandelion Sprout Anti-Malware, import it through **jsDelivr**:
 
 ```text
-https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt
+https://cdn.jsdelivr.net/gh/DandelionSprout/adfilt@master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
 ```
 
-This provides an additional source of malware- and scam-related filtering.
-
-If you already use TIF and uBO's built-in security lists, treat it as an **optional additional source**, not a requirement.
+This is an additional malware- and scam-oriented source. The normal HaGeZi profile remains PRO++ Full + TIF Full; the reduced HaGeZi profile is only for performance problems.
 
 </details>
+
+> [!IMPORTANT]
+> All manually imported external list URLs in this guide use **jsDelivr**.
 
 ---
 
@@ -438,16 +429,16 @@ Enable them according to your preferences.
 
 ---
 
-## 4.6. 🧱 Strict Profile
+## 4.6. 🧱 Default PRO++ Full + TIF Full Profile
 
-For a stricter configuration, use the same browser-oriented HaGeZi variants:
+Import the same **full** browser lists used with uBlock Origin:
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
 ```
 
-### Result
+### Normal result
 
 ```text
 Brave Shields
@@ -457,10 +448,31 @@ Brave Shields
 ├── 🔗 URL Tracking Protection
 ├── 🧹 Annoyance filters [optional]
 │
-└── 🔥 Strict profile
-    ├── HaGeZi Pro++ Mini
-    └── HaGeZi TIF Medium
+└── 🔥 Default external profile
+    ├── HaGeZi Multi PRO++ — Full
+    └── HaGeZi TIF — Full
 ```
+
+Keep this configuration unless Brave shows an actual resource or stability problem attributable to the list size.
+
+### 🪶 Performance fallback
+
+If the full profile causes real performance problems, replace both HaGeZi lists with:
+
+```text
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
+```
+
+```text
+Brave Shields — performance fallback
+│
+├── HaGeZi Multi PRO++ — Mini
+└── HaGeZi TIF — Medium
+```
+
+> [!WARNING]
+> This is the **only reduced Brave profile** in the guide. Do not use it unless the full profile creates a measurable performance or stability issue.
 
 ---
 
@@ -489,23 +501,15 @@ Open:
 
 ---
 
-## 5.1. 🎚️ Choose One HaGeZi Main List
+## 5.1. 📙 HaGeZi Multi PRO++ — Full
 
-Do not stack several levels of the same HaGeZi family.
+Use **HaGeZi Multi PRO++** as the main DNS blocklist.
 
-Choose one.
+```text
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
+```
 
-### 🟢 Balanced
-
-> **HaGeZi Multi PRO**
-
-A strong balance between coverage and compatibility.
-
-### 🔴 Strict
-
-> **HaGeZi Multi PRO++**
-
-A more aggressive policy against categories such as:
+PRO++ applies a deliberately aggressive policy against categories such as:
 
 * tracking;
 * telemetry;
@@ -515,17 +519,19 @@ A more aggressive policy against categories such as:
 * other unwanted domains.
 
 > [!CAUTION]
-> **Do not enable PRO and PRO++ at the same time.**
+> **PRO++ is intentionally aggressive.**
 >
-> Choose the level that matches your preferred balance between blocking and compatibility.
+> Be prepared to create narrow exceptions for legitimate services that are caught by the list.
 
 ---
 
-## 5.2. ☣️ Threat Intelligence Feeds
+## 5.2. ☣️ HaGeZi Threat Intelligence Feeds — TIF Full
 
-Add:
+Use **TIF Full**.
 
-> **HaGeZi Threat Intelligence Feeds — TIF**
+```text
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+```
 
 TIF is primarily security-oriented and targets categories such as:
 
@@ -536,27 +542,19 @@ TIF is primarily security-oriented and targets categories such as:
 * command-and-control infrastructure;
 * other malicious domains.
 
-### Choosing the Appropriate Size
-
-| Server resources                 | Variant        |
-| -------------------------------- | -------------- |
-| 🟢 Plenty of memory              | **TIF Full**   |
-| 🟡 Moderate resources            | **TIF Medium** |
-| 🔵 Resource-constrained hardware | **TIF Mini**   |
-
-> [!TIP]
-> The best TIF variant is not necessarily the largest one.
+> [!WARNING]
+> **TIF Full is very large.**
 >
-> Use the largest version your server can handle comfortably without excessive memory use, slow filter reloads, or instability.
+> HaGeZi currently marks TIF Full for AdGuard Home systems with at least **2 GB of RAM**. Expect substantial memory use and longer filter reload times.
 
 ---
 
 ## 5.3. 🦠 Dandelion Sprout Anti-Malware
 
-Use the AdGuard Home-specific version:
+Use the AdGuard Home-specific version through **jsDelivr**:
 
 ```text
-https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
+https://cdn.jsdelivr.net/gh/DandelionSprout/adfilt@master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
 ```
 
 > [!IMPORTANT]
@@ -566,26 +564,42 @@ https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Alter
 
 ---
 
-## 5.4. 📦 Recommended AdGuard Home Profiles
+## 5.4. 📦 Recommended AdGuard Home Profile
 
-### 🟢 Balanced
+### ✅ Default profile
 
-```text
-AdGuard Home
-├── HaGeZi Multi PRO
-├── HaGeZi TIF
-└── Dandelion Sprout Anti-Malware
-```
-
-### 🔴 Strict
+Use this profile first and keep it whenever the server handles it comfortably:
 
 ```text
 AdGuard Home
-├── HaGeZi Multi PRO++
-├── HaGeZi TIF
-│   └── Medium / Mini if hardware is constrained
+├── HaGeZi Multi PRO++ — Full
+├── HaGeZi TIF — Full
 └── Dandelion Sprout Anti-Malware
 ```
+
+```text
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+```
+
+### 🪶 Performance fallback
+
+Only if the full lists create a real memory, reload-time, or stability problem, replace both HaGeZi lists with the single reduced profile below:
+
+```text
+AdGuard Home
+├── HaGeZi Multi PRO++ — Mini
+├── HaGeZi TIF — Medium
+└── Dandelion Sprout Anti-Malware
+```
+
+```text
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
+https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
+```
+
+> [!IMPORTANT]
+> The fallback is not a co-equal recommendation. **PRO++ Full + TIF Full remains the default.** Use the reduced profile only after confirming that the full profile is causing performance problems.
 
 ---
 
@@ -865,6 +879,7 @@ Passing every test does not necessarily mean your real-world configuration is be
 * [ ] Blocked domains show the expected matching rule.
 * [ ] Filter lists update successfully.
 * [ ] The server is not under excessive memory pressure.
+* [ ] PRO++ Full + TIF Full is still enabled unless you have confirmed a real performance problem.
 
 ---
 
@@ -889,160 +904,13 @@ Review it when:
 * 🔴 a filter list stops updating;
 * 🟡 memory usage increases significantly;
 * 🟡 you accumulate many manual exceptions;
-* 🟡 you switch between PRO and PRO++;
+* 🟡 PRO++ or TIF updates materially increase memory usage or reload times;
 * 🟢 you decide to enable additional annoyance categories.
 
-> [!TIP]
-> If one particular list repeatedly requires new exceptions, that list may simply be **too aggressive for your use case**, even if it technically blocks more domains.
-
----
-
-# 10. ❌ Common Mistakes
-
-## ❌ Adding Lists Without a Clear Purpose
-
-More rules can mean:
-
-* more memory usage;
-* more false positives;
-* harder troubleshooting;
-* diminishing returns.
-
-Every additional list should answer a specific question:
-
-> **What does this list add that my current setup does not already cover well?**
-
-If the answer is unclear, you probably do not need it.
-
----
-
-## ❌ Running Two General-Purpose Browser Blockers
-
-This does not make your browser “twice as protected”.
-
-It does make troubleshooting look like this:
-
-```text
-Who blocked this?
-├── Blocker A
-├── Blocker B
-├── DNS
-└── 🤷
-```
-
-Use one general-purpose blocker in the browser.
-
-Use AdGuard Home as the complementary network layer.
-
----
-
-## ❌ Enabling HaGeZi PRO and PRO++ Together
-
-Choose **one level**.
-
-Do not stack both simply because both are available.
-
----
-
-## ❌ Loading Full TIF Into Every Browser
-
-Use **Medium** or **Mini** browser-oriented variants when appropriate.
-
-Let AdGuard Home handle the heavy domain filtering.
-
----
-
-## ❌ Disabling an Entire List to Fix One Domain
-
-Find the responsible rule and create the narrowest exception possible.
-
----
-
-## ❌ Importing Browser-Oriented Lists Into DNS Filtering
-
-Use lists intended for DNS whenever possible.
-
-Browser filtering syntax and DNS filtering syntax solve different problems.
-
----
-
-## ❌ Enabling Every Annoyance Filter by Default
-
-Annoyance filters are useful, but they can also hide legitimate interface elements.
-
-Enable the categories you actually want.
-
----
-
-## ❌ Optimizing for a Test Website
-
-Optimize for:
-
-1. **real-world coverage**;
-2. **low false-positive rates**;
-3. **low maintenance**;
-4. **easy troubleshooting**.
-
----
-
-# 11. 🏁 Final Recommended Configurations
-
-## 🟢 Balanced
-
-```text
-🧩 uBlock Origin
-├── Default filter lists
-├── Relevant regional lists
-├── AdGuard/uBO URL Tracking Protection
-├── Selected annoyance filters [optional]
-└── Block Outsider Intrusion into LAN [optional]
-
-🦁 Brave Shields
-├── Trackers & ads: Aggressive
-├── Relevant regional lists
-├── URL Tracking Protection
-└── Selected annoyance filters [optional]
-
-🌐 AdGuard Home
-├── HaGeZi Multi PRO
-├── HaGeZi TIF
-└── Dandelion Sprout Anti-Malware
-```
-
----
-
-## 🔴 Strict
-
-```text
-🧩 uBlock Origin / 🦁 Brave Shields
-├── Balanced configuration
-├── HaGeZi Pro++ Mini
-└── HaGeZi TIF Medium
-
-🌐 AdGuard Home
-├── HaGeZi Multi PRO++
-├── HaGeZi TIF
-│   └── Medium / Mini if hardware is constrained
-└── Dandelion Sprout Anti-Malware
-```
-
----
-
 > [!IMPORTANT]
+> **Performance downgrade rule:** keep **PRO++ Full + TIF Full** unless you can identify a real resource or stability problem. If that happens, switch directly to the guide's only fallback profile: **PRO++ Mini + TIF Medium**.
 >
-> ## Rule of Thumb
->
-> **Use DNS for heavy domain-level filtering.**
->
-> **Use the browser blocker for context, URLs, cosmetic filtering, scriptlets, and precise exceptions.**
->
-> A short, understandable, and easy-to-debug configuration is usually better than a huge collection of overlapping lists that nobody can explain.
+> Do not create extra intermediate profiles such as Full + Medium or Mini + Full. This keeps the configuration predictable and troubleshooting simple.
 
----
-
-<details>
-<summary><strong>📌 One-sentence summary</strong></summary>
-
-**uBlock Origin or Brave Shields handles the fine-grained browser filtering; AdGuard Home provides network-wide coverage; HaGeZi strengthens domain-level filtering; and narrow exceptions keep the whole setup maintainable.**
-
-</details>
+> [!TIP]
+> If one particular list repeatedly requires new exceptions, investigate the specific false positives first. Aggressiveness and performance are separate issues: the reduced profile is intended for resource constraints, not as the first response to ordinary site breakage.
