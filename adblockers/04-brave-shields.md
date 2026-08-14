@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 4 of 9
+**[🏠 Guide index](README.md)** · Chapter 4 of 9
 
 # 4. 🦁 Brave Shields
 
@@ -139,13 +139,6 @@ The complementary layer should be your DNS filter, not a second browser blocker 
 
 ---
 
-## 🔗 Related
-
-* [1. 🧱 Recommended Architecture](01-architecture.md) — why the complementary layer is DNS.
-* [3. 🧩 uBlock Origin](03-ublock-origin.md) — the alternative browser blocker, with the same external profile.
-* [5. 🌐 AdGuard Home](05-adguard-home.md) — the DNS layer that pairs with Shields.
-* [7.3. Brave Shields](07-troubleshooting.md#73-brave-shields) — diagnosing a broken site without weakening Shields globally.
-
----
-
-⬅️ Previous: [3. 🧩 uBlock Origin](03-ublock-origin.md) · 🏠 [Index](README.md) · ➡️ Next: [5. 🌐 AdGuard Home](05-adguard-home.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[3. uBlock Origin](03-ublock-origin.md)** | **[All chapters](README.md)** | **[5. AdGuard Home](05-adguard-home.md)** |

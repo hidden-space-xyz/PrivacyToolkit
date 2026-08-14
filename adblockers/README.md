@@ -48,4 +48,4 @@ If you are configuring this from scratch, read in order:
 
 ---
 
-➡️ Start reading: [1. 🧱 Recommended Architecture](01-architecture.md)
+### ➡️ [Start reading — 1. Recommended Architecture](01-architecture.md)

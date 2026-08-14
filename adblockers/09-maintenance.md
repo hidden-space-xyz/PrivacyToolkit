@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 9 of 9
+**[🏠 Guide index](README.md)** · Chapter 9 of 9
 
 # 9. 🔧 Maintenance
 
@@ -23,13 +23,6 @@ Review it when:
 
 ---
 
-## 🔗 Related
-
-* [2. ⚡ Quick Configuration](02-quick-configuration.md) — the default profile and the fallback, with the rule for choosing between them.
-* Fallback list URLs per layer: [uBO](03-ublock-origin.md#-performance-fallback), [Brave](04-brave-shields.md#-performance-fallback), [AdGuard Home](05-adguard-home.md#-performance-fallback).
-* [7. 🔍 Troubleshooting and False Positives](07-troubleshooting.md) — the correct first response to breakage.
-* [8. ✅ Verification](08-verification.md) — checks worth repeating after any change.
-
----
-
-⬅️ Previous: [8. ✅ Verification](08-verification.md) · 🏠 [Index](README.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[8. Verification](08-verification.md)** | **[All chapters](README.md)** | *End of the guide* |

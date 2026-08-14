@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 3 of 9
+**[🏠 Guide index](README.md)** · Chapter 3 of 9
 
 # 3. 🧩 uBlock Origin
 
@@ -198,13 +198,6 @@ These modes are powerful, but they should not be part of a general-purpose recom
 
 ---
 
-## 🔗 Related
-
-* [2. ⚡ Quick Configuration](02-quick-configuration.md) — why PRO++ Full + TIF Full is the default.
-* [7.1. uBlock Origin](07-troubleshooting.md#71-ublock-origin) — using the Logger and writing site-specific exceptions.
-* [8. ✅ Verification](08-verification.md) — the uBO checklist.
-* [4.7. Use One General-Purpose Browser Blocker](04-brave-shields.md#47-use-one-general-purpose-browser-blocker) — do not run uBO and Brave Shields as competing general-purpose blockers.
-
----
-
-⬅️ Previous: [2. ⚡ Quick Configuration](02-quick-configuration.md) · 🏠 [Index](README.md) · ➡️ Next: [4. 🦁 Brave Shields](04-brave-shields.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[2. Quick Configuration](02-quick-configuration.md)** | **[All chapters](README.md)** | **[4. Brave Shields](04-brave-shields.md)** |

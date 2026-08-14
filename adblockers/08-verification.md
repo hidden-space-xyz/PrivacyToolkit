@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 8 of 9
+**[🏠 Guide index](README.md)** · Chapter 8 of 9
 
 # 8. ✅ Verification
 
@@ -57,11 +57,6 @@ See [5. 🌐 AdGuard Home](05-adguard-home.md). If devices are missing from the 
 
 ---
 
-## 🔗 Related
-
-* [7. 🔍 Troubleshooting and False Positives](07-troubleshooting.md) — what to do when a check fails.
-* [9. 🔧 Maintenance](09-maintenance.md) — how often to repeat these checks.
-
----
-
-⬅️ Previous: [7. 🔍 Troubleshooting and False Positives](07-troubleshooting.md) · 🏠 [Index](README.md) · ➡️ Next: [9. 🔧 Maintenance](09-maintenance.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[7. Troubleshooting](07-troubleshooting.md)** | **[All chapters](README.md)** | **[9. Maintenance](09-maintenance.md)** |

@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 6 of 9
+**[🏠 Guide index](README.md)** · Chapter 6 of 9
 
 # 6. 🚧 Preventing AdGuard Home Bypass
 
@@ -76,12 +76,6 @@ Only implement it if enforcing the local DNS policy is actually one of your goal
 
 ---
 
-## 🔗 Related
-
-* [5. 🌐 AdGuard Home](05-adguard-home.md) — the resolver this chapter protects.
-* [5.6. 🔐 Encrypted Upstream DNS](05-adguard-home.md#56--encrypted-upstream-dns) — encryption you *do* want, between AdGuard Home and its upstream.
-* [8. ✅ Verification](08-verification.md) — confirming devices really query AdGuard Home instead of bypassing it.
-
----
-
-⬅️ Previous: [5. 🌐 AdGuard Home](05-adguard-home.md) · 🏠 [Index](README.md) · ➡️ Next: [7. 🔍 Troubleshooting and False Positives](07-troubleshooting.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[5. AdGuard Home](05-adguard-home.md)** | **[All chapters](README.md)** | **[7. Troubleshooting](07-troubleshooting.md)** |

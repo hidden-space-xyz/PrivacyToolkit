@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 1 of 9
+**[🏠 Guide index](README.md)** · Chapter 1 of 9
 
 # 1. 🧱 Recommended Architecture
 
@@ -95,12 +95,6 @@ Blindly duplicating millions of domain rules across every layer usually is not.
 
 ---
 
-## 🔗 Related
-
-* [2. ⚡ Quick Configuration](02-quick-configuration.md) — the concrete lists that implement this architecture.
-* [5.5. 🚫 What Not to Put in AdGuard Home](05-adguard-home.md#55--what-not-to-put-in-adguard-home) — the practical consequence of the DNS/browser split.
-* [4.7. Use One General-Purpose Browser Blocker](04-brave-shields.md#47-use-one-general-purpose-browser-blocker) — why the second layer should be DNS, not another extension.
-
----
-
-🏠 [Index](README.md) · ➡️ Next: [2. ⚡ Quick Configuration](02-quick-configuration.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| *Start of the guide* | **[All chapters](README.md)** | **[2. Quick Configuration](02-quick-configuration.md)** |

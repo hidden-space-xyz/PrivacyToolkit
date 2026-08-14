@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 5 of 9
+**[🏠 Guide index](README.md)** · Chapter 5 of 9
 
 # 5. 🌐 AdGuard Home
 
@@ -170,13 +170,6 @@ There is no reason to toggle settings unnecessarily if your current configuratio
 
 ---
 
-## 🔗 Related
-
-* [6. 🚧 Preventing AdGuard Home Bypass](06-bypass-prevention.md) — making sure traffic actually reaches this resolver.
-* [7.2. AdGuard Home](07-troubleshooting.md#72-adguard-home) — Query Log and DNS exceptions.
-* [8. ✅ Verification](08-verification.md) — confirming that phones, TVs, and IoT devices are filtered.
-* [1. 🧱 Recommended Architecture](01-architecture.md) — what DNS filtering can and cannot see.
-
----
-
-⬅️ Previous: [4. 🦁 Brave Shields](04-brave-shields.md) · 🏠 [Index](README.md) · ➡️ Next: [6. 🚧 Preventing AdGuard Home Bypass](06-bypass-prevention.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[4. Brave Shields](04-brave-shields.md)** | **[All chapters](README.md)** | **[6. Preventing AdGuard Home Bypass](06-bypass-prevention.md)** |

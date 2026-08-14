@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 2 of 9
+**[🏠 Guide index](README.md)** · Chapter 2 of 9
 
 # 2. ⚡ Quick Configuration
 
@@ -57,4 +57,6 @@ The downgrade decision itself is covered in [9. 🔧 Maintenance](09-maintenance
 
 ---
 
-⬅️ Previous: [1. 🧱 Recommended Architecture](01-architecture.md) · 🏠 [Index](README.md) · ➡️ Next: [3. 🧩 uBlock Origin](03-ublock-origin.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[1. Recommended Architecture](01-architecture.md)** | **[All chapters](README.md)** | **[3. uBlock Origin](03-ublock-origin.md)** |

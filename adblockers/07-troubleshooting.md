@@ -1,4 +1,4 @@
-[🏠 Guide index](README.md) · Part 7 of 9
+**[🏠 Guide index](README.md)** · Chapter 7 of 9
 
 # 7. 🔍 Troubleshooting and False Positives
 
@@ -106,12 +106,6 @@ Typical offenders include:
 
 ---
 
-## 🔗 Related
-
-* [3.4. 🍪 Cookie Notices and Other Annoyances](03-ublock-origin.md#34--cookie-notices-and-other-annoyances) and [4.5. 🧹 Annoyance Filters](04-brave-shields.md#45--annoyance-filters) — frequent causes of missing dialogs and buttons.
-* [3.5. 🏠 Local Network Protection](03-ublock-origin.md#35--local-network-protection) — if local services stopped working from the browser.
-* [9. 🔧 Maintenance](09-maintenance.md) — when repeated exceptions mean the setup itself needs a review.
-
----
-
-⬅️ Previous: [6. 🚧 Preventing AdGuard Home Bypass](06-bypass-prevention.md) · 🏠 [Index](README.md) · ➡️ Next: [8. ✅ Verification](08-verification.md)
+| ⬅️ Previous | 🏠 Index | Next ➡️ |
+|:----------- |:--------:| ---------:|
+| **[6. Preventing AdGuard Home Bypass](06-bypass-prevention.md)** | **[All chapters](README.md)** | **[8. Verification](08-verification.md)** |
