@@ -12,7 +12,9 @@ uBlock Origin already ships with an excellent baseline.
 
 Do not rebuild it from scratch unless you have a specific reason to do so.
 
-### Important built-in lists
+This guide defines an **exact set** of lists for uBlock Origin. The sections below build it up piece by piece; [3.7. Final Configuration](#37--final-configuration) states the finished set in one place.
+
+### 🧱 Built-in — the five uBlock filters lists
 
 * ✅ **uBlock filters – Ads**
 * ✅ **uBlock filters – Badware risks**
@@ -25,28 +27,39 @@ Do not rebuild it from scratch unless you have a specific reason to do so.
 >
 > Aggressive blocking also requires rules designed to **repair website breakage**, not just additional blocking rules.
 
+### 🌐 General-purpose lists — enable exactly these
+
+| Category | List |
+| -------- | ---- |
+| 📢 **Ads** | ✅ **EasyList** |
+| 🕵️ **Privacy** | ✅ **EasyPrivacy** |
+| 🦠 **Malware protection, security** | ✅ **Online Malicious URL Blocklist** |
+| 🧰 **Multipurpose** | ✅ **Peter Lowe's Ad and tracking server list** |
+
+No other entry in these categories should be enabled.
+
 ---
 
 ## 3.2. 🌍 Regional Lists
 
-Enable the regional lists that match the languages you actually browse.
+Under **Regions, languages**, enable the lists that match the languages you actually browse.
 
-For Spanish-language websites, for example:
+For Spanish, enable both:
 
 * ✅ **EasyList Spanish**
 * ✅ **AdGuard Spanish/Portuguese**
 
-There is little value in enabling regional lists for languages you rarely or never use.
+There is little value in enabling regional lists for languages you rarely or never use, and every extra list is one more candidate to check when a page breaks. Leave the rest of the category disabled.
 
 ---
 
 ## 3.3. 🔗 URL Tracking Protection
 
-Enable:
+Under **Privacy**, enable:
 
-> **AdGuard/uBO – URL Tracking Protection**
+* ✅ **AdGuard/uBO – URL Tracking Protection**
 
-This category can remove common tracking parameters such as:
+This list can remove common tracking parameters such as:
 
 ```text
 utm_source
@@ -69,35 +82,33 @@ This addresses a different tracking mechanism from conventional ad or domain blo
 
 ## 3.4. 🍪 Cookie Notices and Other Annoyances
 
-uBO provides optional filters for categories such as:
+uBO groups these filters into three categories:
 
-* cookie notices;
-* social widgets;
-* newsletter prompts;
-* notification requests;
-* pop-ups;
-* other annoyances.
+* 🍪 **Cookie notices**;
+* 👥 **Social widgets**;
+* 🧹 **Annoyances**.
 
-A sensible approach is:
+In this guide, **all three categories stay empty**. Leave every list in them disabled.
 
-> **Enable only the categories you actually want removed.**
+Annoyance filtering is the most cosmetic and the most breakage-prone part of a blocker's ruleset, and it is the part that buys the least in return. Keeping these categories off is what makes the rest of the configuration cheap to troubleshoot: when a page misbehaves, the cause is a network rule you can find in the Logger, not a hidden element.
 
 > [!NOTE]
 > Hiding a consent banner does **not necessarily mean that consent has been actively rejected**.
 >
-> Annoyance filters should primarily be treated as interface-cleanup tools rather than as a substitute for browser privacy controls or explicit consent handling.
+> Annoyance filters are interface-cleanup tools, not a substitute for browser privacy controls or explicit consent handling — another reason not to rely on them here.
 
-More cosmetic filtering can also mean more opportunities for page breakage.
+> [!TIP]
+> If you decide you want a specific annoyance category anyway, enable **one** list, live with it for a while, and treat it as a deliberate departure from this guide. Do not enable the categories wholesale.
 
 ---
 
 ## 3.5. 🏠 Local Network Protection
 
-Optional:
+Under **Privacy**, enable:
 
-> **Block Outsider Intrusion into LAN**
+* ✅ **Block Outsider Intrusion into LAN**
 
-This provides additional protection against websites attempting to interact with resources on private network ranges such as:
+This protects against websites attempting to interact with resources on private network ranges such as:
 
 ```text
 192.168.x.x
@@ -177,7 +188,61 @@ https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Spro
 
 ---
 
-## 3.7. 🧨 Dynamic Filtering
+## 3.7. 📋 Final Configuration
+
+This is the **complete** uBlock Origin configuration in this guide. Every list is shown by the category uBO files it under, and nothing outside this tree should be enabled:
+
+```text
+uBlock Origin — Filter lists
+│
+├── 🧱 Built-in
+│   ├── uBlock filters – Ads
+│   ├── uBlock filters – Badware risks
+│   ├── uBlock filters – Privacy
+│   ├── uBlock filters – Quick fixes
+│   └── uBlock filters – Unbreak
+│
+├── 📢 Ads
+│   └── EasyList
+│
+├── 🕵️ Privacy
+│   ├── EasyPrivacy
+│   ├── AdGuard/uBO – URL Tracking Protection
+│   └── Block Outsider Intrusion into LAN
+│
+├── 🦠 Malware protection, security
+│   └── Online Malicious URL Blocklist
+│
+├── 🧰 Multipurpose
+│   └── Peter Lowe's Ad and tracking server list
+│
+├── 🍪 Cookie notices ......... none
+├── 👥 Social widgets ......... none
+├── 🧹 Annoyances ............. none
+│
+├── 🌍 Regions, languages
+│   ├── EasyList Spanish
+│   └── AdGuard Spanish/Portuguese
+│
+└── 🔥 Custom
+    ├── Dandelion Sprout's Anti-Malware List
+    ├── HaGeZi's Pro++ DNS Blocklist
+    └── HaGeZi's Threat Intelligence Feeds DNS Blocklist
+```
+
+> [!IMPORTANT]
+> **This is a closed set.** The lists above enabled, every other list disabled, those three imported URLs, nothing else.
+>
+> Work through each category and confirm its end state directly, rather than assuming a list is already in the right position.
+
+> [!NOTE]
+> **Custom always holds exactly these three entries.** Switching to the [performance fallback](#-performance-fallback) changes *which* HaGeZi lists occupy two of them — Full by default, reduced only when needed — not how many entries there are. Dandelion Sprout Anti-Malware is the same list in both profiles.
+>
+> The regional entries follow the languages you browse; for Spanish that is the two lists shown above.
+
+---
+
+## 3.8. 🧨 Dynamic Filtering
 
 uBlock Origin supports much more restrictive configurations, including:
 

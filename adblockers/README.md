@@ -12,8 +12,8 @@ Each chapter is a separate document so you can read only what applies to your se
 | - | -------- | -------------- |
 | 1 | [🧱 Recommended Architecture](01-architecture.md) | Why DNS and browser filtering solve different problems, and how a request flows through both layers |
 | 2 | [⚡ Quick Configuration](02-quick-configuration.md) | The default profile (PRO++ Full + TIF Full) and the single performance fallback |
-| 3 | [🧩 uBlock Origin](03-ublock-origin.md) | Built-in lists, regional lists, URL tracking protection, annoyances, external lists, dynamic filtering |
-| 4 | [🦁 Brave Shields](04-brave-shields.md) | Aggressive mode, filter lists, regional coverage, external profile, avoiding duplicate blockers |
+| 3 | [🧩 uBlock Origin](03-ublock-origin.md) | Built-in lists, regional lists, URL tracking protection, LAN protection, external lists, and the exact final list set |
+| 4 | [🦁 Brave Shields](04-brave-shields.md) | Aggressive mode, the exact catalog entries to enable, regional coverage, external profile, avoiding duplicate blockers |
 | 5 | [🌐 AdGuard Home](05-adguard-home.md) | DNS blocklists, recommended profile, what not to import, encrypted upstreams, DNSSEC |
 | 6 | [🚧 Preventing AdGuard Home Bypass](06-bypass-prevention.md) | DHCP, port `53`, DoT/DoH, and how far you want to enforce local DNS |
 | 7 | [🔍 Troubleshooting and False Positives](07-troubleshooting.md) | Diagnosing breakage per tool and writing the narrowest possible exception |
@@ -37,8 +37,8 @@ If you are configuring this from scratch, read in order:
 
 | Tool              | Configuration                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
-| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
-| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
+| **uBlock Origin** | Built-in lists + regional lists + URL Tracking Protection + LAN protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware — **and nothing else** |
+| **Brave Shields** | Aggressive mode + regional lists + Tracking URL blocker + Annoying distractions blocker + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware — **and nothing else** |
 | **AdGuard Home**  | HaGeZi Multi PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware           |
 
 > [!IMPORTANT]

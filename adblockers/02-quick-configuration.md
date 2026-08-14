@@ -14,8 +14,8 @@ The rule is simple:
 
 | Tool              | Configuration                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
-| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
-| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
+| **uBlock Origin** | Built-in lists + regional lists + URL Tracking Protection + LAN protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware — **and nothing else** |
+| **Brave Shields** | Aggressive mode + regional lists + Tracking URL blocker + Annoying distractions blocker + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware — **and nothing else** |
 | **AdGuard Home**  | HaGeZi Multi PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware           |
 
 The default external profile is:

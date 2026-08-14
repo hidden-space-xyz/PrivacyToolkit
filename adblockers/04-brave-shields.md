@@ -33,47 +33,64 @@ Brave already incorporates its own filtering rules and rules derived from establ
 >
 > Duplicating a source does not create an independent layer of protection.
 
+This guide defines an **exact set** of catalog entries and imported URLs for Brave. The sections below build it up piece by piece; [4.6. Default Profile](#46--default-pro-full--tif-full-profile) states the finished set in one place.
+
 ---
 
 ## 4.3. 🌍 Regional Coverage
 
-Enable the regional lists relevant to the languages you browse.
+**Always enable the regional lists for the languages you actually browse.** They are part of the default profile, not an optional extra: Brave's built-in lists cover English-language advertising far better than anything else, and regional sites are the gap they leave.
 
-For Spanish-language websites, for example:
+Brave's catalog uses **its own titles**, which do not match the names uBlock Origin gives the same sources. For Spanish, enable both:
 
-* **EasyList Spanish**
-* **AdGuard Spanish/Portuguese**
+| Brave catalog title | Underlying source |
+| ------------------- | ----------------- |
+| ✅ **Spanish website ad blocker** | EasyList Spanish |
+| ✅ **Spanish and Portuguese website ad blocker** | AdGuard Spanish/Portuguese |
 
-If Brave already exposes the relevant list through its built-in catalog, prefer enabling it there instead of manually importing its URL.
+> [!TIP]
+> Do not search the catalog for `EasyList Spanish` — you will not find it. Brave lists these entries by language, in the form `<Language> website ad blocker`.
+
+Enable the equivalent entries for any other language you browse regularly. There is little value in enabling regional lists for languages you never use.
+
+Always prefer Brave's built-in catalog entry over manually importing the same list's URL.
 
 ---
 
 ## 4.4. 🔗 URL Tracking Protection
 
-If available in your installation, enable:
+**Always enable:**
 
 * ✅ **Tracking URL blocker**
 
-Brave also includes its own mechanisms for stripping selected tracking parameters, so this should be considered complementary rather than the sole source of URL cleanup.
+It is backed by the AdGuard URL Tracking filter, which strips tracking parameters such as `utm_source`, `fbclid`, or `gclid` from the URLs you load.
+
+Brave also includes its own mechanisms for stripping selected tracking parameters, so treat this as a complementary layer rather than the sole source of URL cleanup.
 
 ---
 
 ## 4.5. 🧹 Annoyance Filters
 
-Optional categories may include:
+**Always enable:**
 
-* 🍪 cookie notices;
-* 💬 floating chats;
-* 🔔 notification prompts;
-* 📧 newsletter prompts;
-* 📱 “install our app” banners;
-* 👥 social widgets;
-* 🪟 pop-ups.
+* ✅ **Annoying distractions blocker**
 
-Enable them according to your preferences.
+It bundles Fanboy's Annoyance list together with the uBlock Origin annoyances and cookie-notice filters, which makes it the single broadest annoyance source in the catalog — including coverage of cookie notices.
+
+### 🚫 Everything else stays off
+
+This guide uses a **closed set** of Brave filters: the entries listed in [4.6. Default Profile](#46--default-pro-full--tif-full-profile) and nothing more.
+
+Every other entry in the catalog must end up **disabled** — the narrower annoyance blockers for newsletter popups, social media, chat apps, AI suggestions, cookie notices, mobile app promos, and YouTube elements included. Much of their coverage already lives inside *Annoying distractions blocker*, and each additional entry adds one more candidate to check when a page breaks.
+
+> [!IMPORTANT]
+> Go through the catalog and confirm the end state directly, rather than assuming an entry is already in the right position. Which entries a fresh Brave ships enabled is a moving target; the configuration in this guide is not.
+
+> [!NOTE]
+> Brave's own core filters are always active and are **not exposed as toggles** in the catalog. The closed-set rule governs the entries you can actually switch and the URLs you import — not Brave's built-in baseline.
 
 > [!TIP]
-> If a page suddenly loses an important dialog, button, or form, annoyance filters should be among the first things you investigate.
+> With this configuration, *Annoying distractions blocker* is the only annoyance source you have enabled. If a page loses an important dialog, button, or form, it is the first thing to toggle off when testing.
 
 ---
 
@@ -94,19 +111,37 @@ https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Spro
 
 ### Normal result
 
+This is the **complete** Brave configuration in this guide. Nothing outside this tree should be enabled:
+
 ```text
 Brave Shields
 │
 ├── 🛡️ Trackers & ads: Aggressive
-├── 🌍 Regional filters
-├── 🔗 URL Tracking Protection
-├── 🧹 Annoyance filters [optional]
 │
-└── 🔥 Default external profile
+├── ✅ Catalog entries — enabled, and only these
+│   ├── 🌍 Regional lists for the languages you browse
+│   │   ├── Spanish website ad blocker
+│   │   └── Spanish and Portuguese website ad blocker
+│   ├── 🔗 Tracking URL blocker
+│   └── 🧹 Annoying distractions blocker
+│
+├── 🚫 Every other catalog entry — disabled
+│
+└── 🔥 Imported lists — these three, and only these
     ├── HaGeZi Multi PRO++ — Full
     ├── HaGeZi TIF — Full
     └── Dandelion Sprout Anti-Malware
 ```
+
+> [!IMPORTANT]
+> **This is a closed set, in both directions.** The catalog entries listed above enabled, every other one disabled, those three imported URLs, nothing else.
+>
+> Work through the catalog and confirm each position rather than trusting what a fresh installation happens to ship with.
+>
+> Brave's built-in core filters are not toggleable and are unaffected by this rule — see [4.5](#45--annoyance-filters).
+
+> [!NOTE]
+> **Brave always holds exactly these three imported URLs.** Switching to the [performance fallback](#-performance-fallback) below changes *which* HaGeZi lists occupy two of them — Full by default, reduced only when needed — not how many there are. Dandelion Sprout Anti-Malware is the same list in both profiles.
 
 Keep this configuration unless Brave shows an actual resource or stability problem attributable to the list size.
 

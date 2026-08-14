@@ -15,6 +15,8 @@ Passing every test does not necessarily mean your real-world configuration is be
 * [ ] The Logger shows blocked requests.
 * [ ] You can identify the rule responsible for a block.
 * [ ] Filter lists update successfully.
+* [ ] The enabled lists match [3.7. Final Configuration](03-ublock-origin.md#37--final-configuration) exactly, and nothing else is enabled.
+* [ ] **Cookie notices**, **Social widgets**, and **Annoyances** are empty.
 * [ ] The Dandelion Sprout list imported here is the **browser** version, not `AntiMalwareAdGuardHome.txt`.
 * [ ] Your normal websites still work.
 
@@ -26,7 +28,11 @@ See [3. 🧩 uBlock Origin](03-ublock-origin.md) for the configuration these che
 
 * [ ] Shields is enabled.
 * [ ] Trackers & ads blocking is set to **Aggressive**.
-* [ ] Appropriate regional lists are enabled.
+* [ ] Regional lists for the languages you browse are enabled — for Spanish, *Spanish website ad blocker* and *Spanish and Portuguese website ad blocker*.
+* [ ] **Tracking URL blocker** is enabled.
+* [ ] **Annoying distractions blocker** is enabled.
+* [ ] Every other catalog entry is disabled.
+* [ ] The only imported URLs are the two HaGeZi lists and Dandelion Sprout Anti-Malware.
 * [ ] Custom lists update correctly.
 * [ ] The Dandelion Sprout list imported here is the **browser** version, not `AntiMalwareAdGuardHome.txt`.
 * [ ] Your normal websites still work.
