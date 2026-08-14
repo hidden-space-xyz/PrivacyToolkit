@@ -36,7 +36,7 @@ Do not reduce the lists pre-emptively. Do not choose intermediate combinations. 
 
 ### External list policy
 
-All manually imported external lists in this guide use **jsDelivr** URLs.
+All manually imported external lists in this guide are loaded directly from their source repository on **`raw.githubusercontent.com`**, tracking each project's default branch so the URL always serves the current version of the list.
 
 > [!WARNING]
 > **PRO++ Full and TIF Full are intentionally heavy and aggressive.**

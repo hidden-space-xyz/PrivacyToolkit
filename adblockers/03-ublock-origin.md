@@ -130,8 +130,8 @@ If you regularly access local services from the browser, be prepared to create n
 Use the **full** HaGeZi lists in the browser by default:
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 ```
 
 | List                          | Purpose                                                |
@@ -149,8 +149,8 @@ https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
 Only if the full profile causes real performance problems, replace **both** full HaGeZi lists with this single reduced profile:
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.medium.txt
 ```
 
 | List                           | Role in the fallback profile |
@@ -164,10 +164,10 @@ https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
 <details>
 <summary><strong>🦠 Dandelion Sprout Anti-Malware — optional additional source</strong></summary>
 
-If you also want Dandelion Sprout Anti-Malware, import it through **jsDelivr**:
+If you also want Dandelion Sprout Anti-Malware, import it from its source repository:
 
 ```text
-https://cdn.jsdelivr.net/gh/DandelionSprout/adfilt@master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
 ```
 
 This is an additional malware- and scam-oriented source. The normal HaGeZi profile remains PRO++ Full + TIF Full; the reduced HaGeZi profile is only for performance problems.
@@ -175,7 +175,7 @@ This is an additional malware- and scam-oriented source. The normal HaGeZi profi
 </details>
 
 > [!IMPORTANT]
-> All manually imported external list URLs in this guide use **jsDelivr**.
+> All manually imported external list URLs in this guide point to **`raw.githubusercontent.com`**.
 
 ---
 

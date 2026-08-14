@@ -82,8 +82,8 @@ Enable them according to your preferences.
 Import the same **full** browser lists used with uBlock Origin:
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 ```
 
 ### Normal result
@@ -108,8 +108,8 @@ Keep this configuration unless Brave shows an actual resource or stability probl
 If the full profile causes real performance problems, replace both HaGeZi lists with:
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.medium.txt
 ```
 
 ```text

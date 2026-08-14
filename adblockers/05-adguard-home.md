@@ -15,7 +15,7 @@ Open:
 Use **HaGeZi Multi PRO++** as the main DNS blocklist.
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
 ```
 
 PRO++ applies a deliberately aggressive policy against categories such as:
@@ -39,7 +39,7 @@ PRO++ applies a deliberately aggressive policy against categories such as:
 Use **TIF Full**.
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 ```
 
 TIF is primarily security-oriented and targets categories such as:
@@ -60,10 +60,10 @@ TIF is primarily security-oriented and targets categories such as:
 
 ## 5.3. 🦠 Dandelion Sprout Anti-Malware
 
-Use the AdGuard Home-specific version through **jsDelivr**:
+Use the AdGuard Home-specific version from the source repository:
 
 ```text
-https://cdn.jsdelivr.net/gh/DandelionSprout/adfilt@master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
 ```
 
 > [!IMPORTANT]
@@ -87,8 +87,8 @@ AdGuard Home
 ```
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 ```
 
 ### 🪶 Performance fallback
@@ -103,8 +103,8 @@ AdGuard Home
 ```
 
 ```text
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.mini.txt
-https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.medium.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.medium.txt
 ```
 
 > [!IMPORTANT]
