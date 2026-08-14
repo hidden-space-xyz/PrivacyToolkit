@@ -84,7 +84,13 @@ Import the same **full** browser lists used with uBlock Origin:
 ```text
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
 ```
+
+> [!CAUTION]
+> **Use the browser version of the Dandelion Sprout list here.**
+>
+> Brave Shields consumes browser filter syntax, so it takes the same uBlock Origin version used in [3.6. 🧱 External Lists](03-ublock-origin.md#36--external-lists--default-full-profile). The DNS variant (`AntiMalwareAdGuardHome.txt`) belongs only in [5.3. 🦠 Dandelion Sprout Anti-Malware](05-adguard-home.md#53--dandelion-sprout-anti-malware).
 
 ### Normal result
 
@@ -98,7 +104,8 @@ Brave Shields
 │
 └── 🔥 Default external profile
     ├── HaGeZi Multi PRO++ — Full
-    └── HaGeZi TIF — Full
+    ├── HaGeZi TIF — Full
+    └── Dandelion Sprout Anti-Malware
 ```
 
 Keep this configuration unless Brave shows an actual resource or stability problem attributable to the list size.
@@ -110,17 +117,21 @@ If the full profile causes real performance problems, replace both HaGeZi lists 
 ```text
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.medium.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
 ```
 
 ```text
 Brave Shields — performance fallback
 │
 ├── HaGeZi Multi PRO++ — Mini
-└── HaGeZi TIF — Medium
+├── HaGeZi TIF — Medium
+└── Dandelion Sprout Anti-Malware
 ```
 
 > [!WARNING]
 > This is the **only reduced Brave profile** in the guide. Do not use it unless the full profile creates a measurable performance or stability issue.
+>
+> **Only the two HaGeZi lists are downgraded.** Dandelion Sprout Anti-Malware stays in both profiles.
 
 ---
 

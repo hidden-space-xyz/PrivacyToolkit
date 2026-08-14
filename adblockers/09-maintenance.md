@@ -18,6 +18,9 @@ Review it when:
 >
 > Do not create extra intermediate profiles such as Full + Medium or Mini + Full. This keeps the configuration predictable and troubleshooting simple.
 
+> [!NOTE]
+> **The downgrade applies to the HaGeZi lists only.** Dandelion Sprout Anti-Malware remains enabled in both profiles and in all three tools, at the variant URL matching each layer. If you ever do remove it, remove it deliberately as a separate decision — not as a side effect of a performance downgrade.
+
 > [!TIP]
 > If one particular list repeatedly requires new exceptions, investigate the specific false positives first. Aggressiveness and performance are separate issues: the reduced profile is intended for resource constraints, not as the first response to ordinary site breakage.
 

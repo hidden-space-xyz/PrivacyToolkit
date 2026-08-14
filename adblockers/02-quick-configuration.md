@@ -14,25 +14,42 @@ The rule is simple:
 
 | Tool              | Configuration                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
-| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full |
-| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full |
+| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
+| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
 | **AdGuard Home**  | HaGeZi Multi PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware           |
 
-The default HaGeZi profile is:
+The default external profile is:
 
 * **HaGeZi Multi PRO++ — Full**
 * **HaGeZi Threat Intelligence Feeds — TIF Full**
+* **Dandelion Sprout Anti-Malware**
 
 This is the profile users should normally run in both the browser and DNS layers.
 
 ## 🪶 Performance fallback — only when necessary
 
-If the full profile causes measurable performance problems, replace it with this **single reduced profile**:
+If the full profile causes measurable performance problems, replace the two HaGeZi lists with this **single reduced profile**:
 
 * **HaGeZi Multi PRO++ — Mini**
 * **HaGeZi Threat Intelligence Feeds — TIF Medium**
+* **Dandelion Sprout Anti-Malware** — unchanged
 
 Do not reduce the lists pre-emptively. Do not choose intermediate combinations. In this guide, the reduced profile exists only as a fallback for hardware or browser resource limitations.
+
+> [!NOTE]
+> **The fallback only downgrades HaGeZi.** Dandelion Sprout Anti-Malware is part of both the default and the reduced profile in all three tools. It is comparatively small, so removing it saves little and costs a security-oriented source.
+
+### 🦠 Two versions of the Dandelion Sprout list
+
+The list ships in engine-specific variants. Import the one that matches the layer:
+
+| Layer | URL |
+| ----- | --- |
+| 🧩 uBlock Origin · 🦁 Brave Shields | `https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt` |
+| 🌐 AdGuard Home | `https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt` |
+
+> [!CAUTION]
+> **Do not swap these two URLs.** The browser version uses full request context that a DNS resolver cannot evaluate; the DNS version is rewritten as domain-oriented rules. Each engine must receive the syntax it can actually interpret.
 
 ### External list policy
 

@@ -127,22 +127,29 @@ If you regularly access local services from the browser, be prepared to create n
 
 ## 3.6. 🧱 External Lists — Default Full Profile
 
-Use the **full** HaGeZi lists in the browser by default:
+Import these three lists in the browser by default:
 
 ```text
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
 ```
 
 | List                          | Purpose                                                |
 | ----------------------------- | ------------------------------------------------------ |
 | **HaGeZi Multi PRO++ — Full** | Ads, tracking, telemetry, affiliate infrastructure, and other unwanted domains |
 | **HaGeZi TIF — Full**         | Malware, phishing, scams, and malicious infrastructure |
+| **Dandelion Sprout Anti-Malware** | Malware redirection chains, domain-parking schemes, PUP nags, and related scam infrastructure |
 
 > [!IMPORTANT]
-> **PRO++ Full + TIF Full is the normal browser configuration in this guide.**
+> **PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware is the normal browser configuration in this guide.**
 >
 > Do not choose smaller variants merely to save resources on paper. Keep the full lists unless they cause an observable performance or stability problem on that device.
+
+> [!CAUTION]
+> **Use the browser version of the Dandelion Sprout list here.**
+>
+> The URL above is the uBlock Origin version, which is also the most frequently updated one. The DNS variant (`AntiMalwareAdGuardHome.txt`) belongs in [5.3. 🦠 Dandelion Sprout Anti-Malware](05-adguard-home.md#53--dandelion-sprout-anti-malware) and must not be imported here.
 
 ### 🪶 Performance fallback
 
@@ -151,28 +158,19 @@ Only if the full profile causes real performance problems, replace **both** full
 ```text
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.medium.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
 ```
 
 | List                           | Role in the fallback profile |
 | ------------------------------ | ---------------------------- |
 | **HaGeZi Multi PRO++ — Mini**  | Reduced-size PRO++ variant   |
 | **HaGeZi TIF — Medium**        | Reduced-size TIF variant     |
+| **Dandelion Sprout Anti-Malware** | Unchanged — the same list and URL as in the default profile |
 
 > [!WARNING]
 > Do not treat this as an alternative preference profile. It is only a resource fallback for systems that cannot run PRO++ Full + TIF Full comfortably.
-
-<details>
-<summary><strong>🦠 Dandelion Sprout Anti-Malware — optional additional source</strong></summary>
-
-If you also want Dandelion Sprout Anti-Malware, import it from its source repository:
-
-```text
-https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Dandelion%20Sprout%27s%20Anti-Malware%20List.txt
-```
-
-This is an additional malware- and scam-oriented source. The normal HaGeZi profile remains PRO++ Full + TIF Full; the reduced HaGeZi profile is only for performance problems.
-
-</details>
+>
+> **Only the two HaGeZi lists are downgraded.** Dandelion Sprout Anti-Malware is comparatively small and stays in both profiles.
 
 > [!IMPORTANT]
 > All manually imported external list URLs in this guide point to **`raw.githubusercontent.com`**.

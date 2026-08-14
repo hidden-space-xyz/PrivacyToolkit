@@ -37,14 +37,17 @@ If you are configuring this from scratch, read in order:
 
 | Tool              | Configuration                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
-| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full |
-| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full |
+| **uBlock Origin** | Default lists + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
+| **Brave Shields** | Aggressive mode + regional lists + URL Tracking Protection + PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware |
 | **AdGuard Home**  | HaGeZi Multi PRO++ Full + TIF Full + Dandelion Sprout Anti-Malware           |
 
 > [!IMPORTANT]
 > **Start with and keep PRO++ Full + TIF Full.**
 >
 > Switch to the reduced fallback profile only if the device or server shows a real performance problem. See [Quick Configuration](02-quick-configuration.md) for the full rule and [Maintenance](09-maintenance.md) for the downgrade policy.
+
+> [!NOTE]
+> **Dandelion Sprout Anti-Malware belongs to both the default and the reduced profile**, in all three tools. The browser layers use the uBO version of the list; AdGuard Home uses the DNS version. See [Quick Configuration](02-quick-configuration.md#-two-versions-of-the-dandelion-sprout-list) for both URLs.
 
 ---
 

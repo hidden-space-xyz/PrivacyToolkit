@@ -71,6 +71,15 @@ https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20vers
 >
 > Each filtering engine should receive a list in a syntax it can interpret correctly.
 
+This list is part of **both** the default and the fallback profile in every layer of the guide, but each layer needs its own variant:
+
+| Layer | Variant to import |
+| ----- | ----------------- |
+| 🧩 uBlock Origin · 🦁 Brave Shields | `Dandelion Sprout's Anti-Malware List.txt` — browser syntax, full URL and request context |
+| 🌐 AdGuard Home | `AntiMalwareAdGuardHome.txt` — DNS syntax, domain-oriented rules only |
+
+The DNS variant is rewritten around what a resolver can actually evaluate. Importing the browser version here would load rules AdGuard Home cannot apply; importing this one in a browser would waste the context the browser has available.
+
 ---
 
 ## 5.4. 📦 Recommended AdGuard Home Profile
@@ -89,6 +98,7 @@ AdGuard Home
 ```text
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
 ```
 
 ### 🪶 Performance fallback
@@ -105,10 +115,13 @@ AdGuard Home
 ```text
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.mini.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.medium.txt
+https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt
 ```
 
 > [!IMPORTANT]
 > The fallback is not a co-equal recommendation. **PRO++ Full + TIF Full remains the default.** Use the reduced profile only after confirming that the full profile is causing performance problems.
+>
+> **Only the two HaGeZi lists are downgraded.** Dandelion Sprout Anti-Malware stays in place, at the same URL, in both profiles.
 
 ---
 
